@@ -1,4 +1,5 @@
 import { nanoid } from 'nanoid';
+import { ADD, DELETE } from './constants';
 
 const initialState = {
   contact: [
@@ -11,12 +12,12 @@ const initialState = {
 
 const contactReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'ADD':
+    case ADD:
       return {
         ...state,
         contact: [...state.contact, { id: nanoid(), ...action.payload }],
       };
-    case 'DELETE':
+    case DELETE:
       return {
         ...state,
         contact: state.contact.filter(item => item.id !== action.payload),

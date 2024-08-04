@@ -1,25 +1,29 @@
-// import s from './SearchBox.module.css';
+import { useDispatch } from 'react-redux';
+import s from './SearchBox.module.css';
+import { search } from '../../redux/filters/actions';
 
-// const SearchBox = ({ onSearch }) => {
-//   const handleChange = e => {
-//     const { value } = e.target;
+const SearchBox = () => {
+  const dispatch = useDispatch();
 
-//     onSearch(value);
-//   };
+  const handleChange = e => {
+    dispatch(search(e.target.value));
+  };
 
-//   return (
-//     <div>
-//       <label className={s.label}>
-//         <span>Find contact by name:</span>
-//         <input
-//           onChange={handleChange}
-//           type="text"
-//           name="search"
-//           className={s.input}
-//         ></input>
-//       </label>
-//     </div>
-//   );
-// };
+  return (
+    <div>
+      <label className={s.label}>
+        <span>Find contact by name:</span>
+        <input
+          onChange={e => {
+            handleChange(e);
+          }}
+          type="text"
+          name="search"
+          className={s.input}
+        ></input>
+      </label>
+    </div>
+  );
+};
 
-// export default SearchBox;
+export default SearchBox;
