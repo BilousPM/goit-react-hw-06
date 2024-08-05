@@ -6,7 +6,7 @@ import s from './App.module.css';
 const App = () => {
   return (
     <div>
-      <h1 className={s}>Phonebook</h1>
+      <h1 className={s}>Phone book</h1>
 
       <ContactForm />
       <SearchBox />
